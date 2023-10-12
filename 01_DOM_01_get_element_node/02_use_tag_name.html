@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>02. 태그 이름을 이용한 요소 노드 획독</h1>
+    <p>
+        Document.prototype/element.prototype.getElementByTagName("태그") 매서드는 인수로 전달한 태그 이름을 갖는 모든 요소 노드를 탐색하여 반환한다.
+        매서드의 이름의 Element가 복수형인 것에서 알 수 있듯이 여러개의 요소 노드 객체를 갖는 dom 컬렉션 객체인 htmCollection 객체를 반환한다..
+    </p>
+    <ul id="food">
+        <li>김치찌개</li>
+        <li>된장찌개</li>
+        <li>고등어구어</li>
+    </ul>
+
+    <ul id="drink">
+        <li>커피</li>
+        <li>콜라</li>
+        <li>우유</li>
+    </ul>
+
+    <script>
+        const $lists = document.getElementsByTagName("li");
+        // 김치찌개 -> 짬뽕찌개로 변경
+        $lists[0].innerText="짬뽕찌개";
+
+        // 짬뽕찌개의 글자 색이 빨간색으로 변경
+        $lists[0].style.color="red";
+
+        console.log($lists[0]);
+
+        let changeColor = 0;
+        for(let i = 0; i < $lists.length; i++){
+            // let i = 0; == 선언문
+            // i < $lists.length; == 조건문
+            // i++ == 내용 실행 이후 조건이 참일때 실행이 된다.
+            // 총 6번 돈다
+
+
+            $lists[i].style.backgroundColor= "rgb(130,220," + changeColor + ")";
+            console.log($lists[i].style.backgroundColor);
+
+            changeColor += 50;
+            changeColor = changeColor + 50;
+        }
+
+        // 스프레드 연산자
+        [...$lists].forEach(list => list.style.color = "blue");
+
+        // id가 drink인 것을 가져옴
+        const $drink = document.getElementById("drink");
+        // id가 drink인 것에서 태그가 <li>인 것을 가져옴
+        const $listFormDrink = $drink.getElementsByTagName("li");
+        console.log($drink);
+        console.log($listFormDrink);
+
+        [...$listFormDrink].forEach(list => list.style.color="red");
+    </script>
+</body>
+</html>
