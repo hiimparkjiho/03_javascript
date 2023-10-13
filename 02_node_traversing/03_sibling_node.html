@@ -8,7 +8,7 @@
 <body>
     <h1>03 형제 노드</h1>
     <ol id="node">
-        <li>node.prototype.previousSibling: 형제 노드 중 자신의 이전 형제 노드(요소노드, 텍스트 노드)를 탐색하여 반환</li>
+        <li>node.prototype.previousSibling: 형제 노드 중 자신의 이전 형제 노드(요소 노드, 텍스트 노드)를 탐색하여 반환</li>
         <li>node.prototype.nextSibling: 형제 노드 중 자신의 다음 형제 노드(요소 노드, 텍스트 노드)를 탐색하여 반환</li>
     </ol>
 
@@ -23,6 +23,9 @@
 
         const {nextSibling} = firstChild;
         console.log(nextSibling);
+
+        const {nextElementSibling} = nextSibling;
+        console.log(nextElementSibling);
 
         const {previousSibling} = nextSibling;
         console.log(previousSibling);
