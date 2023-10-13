@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>use_css</title>
+</head>
+<body>
+    <h1>04. css 선택자를 이용한 요소 노드 취득</h1>
+    <p>
+        Document.prototype.Element.prototype.quertSelector 
+        매서드는 인수로 전달한 css 선택자를 만족시키는 하나의 요소 노드를 탐색하여 반환한다.
+    </p>
+
+    <div class="area">
+        <p>first</p>
+    </div>
+
+    <div class="area">
+        <p>second</p>
+    </div>
+
+    <script>
+        // (".area") == parameter
+        const $area = document.querySelector(".area");  // querySelector는 맨 첫번째 것만
+        console.log($area);
+        $area.style.backgroundColor = "red";    // div class가 area인 첫번째 div만 색깔이 바뀐다.
+
+        const $first = document.querySelector("p"); 
+        console.log($first);
+        $first.style.color = "blue";    // 첫번째 <p>태그의 글자색을 바꿔준다.
+
+    </script>
+
+    <p>
+        Document.prototype.Element.prototype.quertSelectorAll 
+        매서드는 인수로 전달한 css 선택자를 만족시키는 모든 요소 노드를 탐색하여 반환한다.
+        여러 개의 요소 노드 객체를 갖는 dom 컬렉션 객체인 nodeList 객체를 변환한다.
+    </p>
+
+    <ul id="list">
+        <li class="drink">커피</li>
+        <li class="drink">콜라</li>
+        <li class="drink">사이다</li>
+        <li class="drink">맥주</li>
+        <li class="food">된장찌개</li>
+        <li class="food">김치찌개</li>
+    </ul>
+
+    <ol>
+        <li>하나</li>
+        <li>둘</li>
+        <li>셋</li>
+    </ol>
+
+    <script>
+        const $allLi = document.querySelectorAll("li"); // 모든 li 태그
+        console.log($allLi);
+
+        const $lists = document.querySelectorAll("ul > li"); // ul 안에 있는 li
+        console.log($lists);
+
+        const $classList = document.querySelectorAll(".drink"); // class가 drink인 태그
+        console.log($classList);
+    </script>
+</body>
+</html>
