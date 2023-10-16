@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>02. className과 classList</h2>
+    <pre>
+        class 어트리뷰트에 대응하는 dom 프로퍼티는 class가 아니라 className, classList이다.
+        요소 노드의 className 프로퍼티는 setter와 getter가 모두 존재하는 접근자로 프로퍼티로 요소 노드의 className 프로퍼티를 참조하면 
+        class 어트리뷰트의 값을 문자열로 반환하고, 요소 노드의 className프로퍼티에 문자열을 할당하면 class 어트리뷰트 값을 할당한 문자열로 변경한다.
+        Element.prototype.classList 프로퍼티는 class 어트리뷰트의 정보를 담은 DomTokenList 객체를 반환한다.
+    </pre>
+
+    <div class="area test test1">안녕</div>
+    <script>
+        const $area = document.querySelector(".area");
+        console.log($area.className);
+
+        //$area.className = "test";
+        //console.log($area.className);
+        console.log($area.classList);
+
+        // $area 클래스 추가
+        $area.classList.add("circle");
+        $area.classList.add("lightgray");
+
+        console.log($area.classList.item(0));
+        console.log($area.classList.item(1));
+        console.log($area.classList.item(2));
+        console.log($area.classList.item(3));
+        console.log($area.classList.item(4));
+
+        // $area의 클래스 이름중에 다음과 같은 이름이 포함되어 있는지 확인
+        console.log($area.classList.contains("circle"));
+        console.log($area.classList.contains("lightgray"));
+        console.log($area.classList.contains("yellow"));
+
+        // replace는 변환해준다.
+        $area.classList.replace("lightgray", "yellow");
+        console.log($area.classList);
+
+        // toggle은 없으면 추가, 있으면 삭제해준다
+        $area.classList.toggle("yellow");
+        console.log("===================");
+        console.log($area.classList);
+        console.log("=====================");
+
+        $area.classList.toggle("yellow");
+        console.log($area.classList);
+        console.log("=====================");
+        $area.classList.remove("yellow");
+        console.log($area.classList);
+    </script>
+</body>
+</html>
