@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            width: 100%;
+            height: 100%;
+            border: 1px solid lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>01. id를 이용한 요소 노드 취득</h1>
+    <p>
+        Document.prototype.getElementById("id") 메서드는 인수로 전달한 id 속성 값을 갖는 하나의 요소
+        노드를 탐색하여 반환한다
+        문서 내에 중복 된 id 값을 갖는 html 요소가 여러 개 존재하더라도 에러가 발생하지 않지만 
+        해당 id 값을 갖는 첫 번째 요소 노드만 반환한다.
+    </p>
+    <div id="area1" class="area"> 
+        div 영역
+        <p id="area2">p 영역</p>
+    </div>    
+
+    <script type="text/javascript">
+        const $elem = document.getElementById("area1");
+        $elem.style.backgroundColor = "skyblue";
+        // = : 대입 연산자 
+        // 한줄 주석 
+        /* 영역 주석 */ 
+        console.log($elem);
+        console.log(document.getElementById("area1"));
+        // 아이디를 바로 사용하는 경우
+        area2.style.backgroundColor='blue';
+
+        let $noElem ;
+        console.log($noElem);
+        $noElem = document.getElementById("area3")
+        console.log($noElem);
+    </script>
+</body>
+</html>

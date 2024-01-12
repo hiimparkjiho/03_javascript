@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="test" value="test"/>
+    <script>
+        const $input = document.getElementById("test");
+
+        console.log(`변경 전 value : ${$input.value}`);
+        $input.value="변경";
+        console.log(`변경 후 value : ${$input.value}`);
+
+
+        console.log(`변경 전 id : ${$input.id}`);
+        $input.id="change";
+        console.log(`변경 후 id : ${$input.id}`);
+
+        $input.setAttribute('id','change2');
+        console.log($input.getAttribute('id'))
+
+        $input.setAttribute('value','change2');
+        console.log($input.getAttribute('value'))
+        
+    </script>
+</body>
+</html>

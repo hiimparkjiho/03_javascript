@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>04. css 선택자를 이용한 요소 노드 취득</h1>
+    <p>
+        Document.prototype/Element.prototype.querySelector
+        메서드는 인수로 전달한 css 선택자를 만족시키는 하나의 
+        요소 노드를 탐색하여 반환한다.
+    </p>
+    <div class="area">
+        <p>fisrt</p>
+    </div>
+    <div class="area">
+        <p>second</p>
+    </div>
+    <script>
+        const $area = document.querySelector(".area");
+        console.log($area);
+        
+        $area.style.backgroundColor="red";
+        const $first = document.querySelector("p");
+        console.log($first);
+
+        $first.style.color="blue";
+    </script>
+
+    <p>
+        Document.prototype/Element.prototype.querySelectorAll
+        메서드는 인수로 전달한 css 선택자를 만족시키는 모든 
+        요소 노드를 탐색하여 반환한다.
+        여러 개의 요소 노드 객체를 갖는 dom 컬렉션 객체인
+        nodeList 객체를 반환한다.
+    </p>
+    <ul id="list">
+        <li class="drink">커피</li>
+        <li class="drink">콜라</li>
+        <li class="drink">사이다.</li>
+        <li class="drink">맥주</li>
+        <li class="food">된장찌개</li>
+        <li class="foor">김치찌개</li>
+    </ul>
+    <ol class="drink">
+        <li>하나</li>
+        <li>둘</li>
+        <li>셋</li>
+    </ol>
+
+    <script>
+        const $Allli = document.querySelectorAll("li");
+        console.log($Allli);
+
+        const $lists = document.querySelectorAll("ul > li");
+        console.log($lists);
+
+        const $classList = document.querySelectorAll(".drink");
+        console.log($classList);
+    </script>
+</body>
+</html>

@@ -3,59 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01.attribute</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>01.attribute</h1>
+    <h1> 01. 어트리 뷰트</h1>
     <pre>
-        Element.prototype.attribute 프로퍼티로 모든 어트리뷰트 노드를 취득할 수 있다.
-        attribute 프로퍼티는 getter만 존재하는 읽지 전용 접근자 프로퍼티로 NameNodeMap 객체를 반환한다.
+        Element.prototype.attributes 프로퍼티로 모든 어트리뷰트 노드를 취득할 수 있다.
+        Attributes 프로퍼티는 getter만 존재하는 읽기 전용 접근자 프로퍼티로 NameNodeMap 객체를 반환한다.
     </pre>
-    <label for="userName">유저명</label>
-    <input type="text" id="userName" value="user01">
+
+    <label for="username">유저명</label>
+    <input type="text" id="username" value="user01"/>
 
     <script>
-        const {attributes} = document.getElementById("userName");
-        console.log(document.getElementById("userName").attributes);
+        const {attributes} = document.getElementById("username");
+        console.log(document.getElementById("username").attributes);
         console.log(attributes);
         console.log(attributes.id.value);
         console.log(attributes.value.value);
-        console.log("-----------");
+        console.log("---------------")
     </script>
 
     <pre>
-        element.prototype.getAttribute/setAttribute 매서드를 사용하면 attribute 프로퍼티를 통하지 않고 요소 노드에서 메서드를 통해 직접 html 어트리뷰트의 값을 취득하거나 변경할 수 있다. 
+        Element.prototype.getAttribute/setAttribute 메서드를 사용하면 attributes 프로퍼티를
+        통하지 않고 요소 노드에서 메서드를 통해 직접 html 어트리뷰트의 값을 취득하거나 
+        변경할 수 있다.
     </pre>
-
     <script>
-        const $input = document.getElementById("userName");
+        const $input = document.getElementById("username");
 
-        // getter의 역할은 취득하는 것이다 
         const inputValue = $input.getAttribute("value");
         console.log(inputValue);
-
-        // setter의 역할은 값을 바꾸는 것
+        
         $input.setAttribute("value", "user02");
-        console.log("--------------");
-    </script>
+        console.log(inputValue);
+        console.log("---------------------")
+    </script>    
 
     <pre>
-        Element.prototype.hasAttribute(attributeName) 메서드를 사용하면 특정 html 어트리뷰트가 존재하는지 확인할 수 있다.
-        Element.protptype.removeAttribute(attributeName) 메서드를 사용하면 특정 html 어트리뷰트를 삭제할 수 있다.
+        Element.prototype.hasAttribute(attributeName) 메서드를 사용하면 특정
+        html 어트리뷰트가 존재하는지 확인할 수 있다.
+        Element.prototype..removeAttribute(attributeName) 메서드를 사용하면 특정 html
+        어트리 뷰트를 삭제할 수 있다.
     </pre>
     <label for="nickname">닉네임</label>
-    <input type="text" id="nickname" value="jsMaster">
-
+    <input type="text" id="nickname" value="JsMaster"/>
     <script>
         const $nickname = document.getElementById("nickname");
         // 속성을 가지고 있는지 확인
-        console.log($nickname.hasAttribute("name"));
-        
-        // 만약 닉네임이 입력되어 있다면 닉네임 값을 지워줌
-        if($nickname.hasAttribute("value")){
+        console.log($nickname.hasAttribute('name'));
+
+        if($nickname.hasAttribute('value')){
             $nickname.removeAttribute("value");
         }
-        console.log($nickname.hasAttribute("value"));
+        console.log($nickname.hasAttribute('value'));
+
     </script>
 </body>
 </html>
