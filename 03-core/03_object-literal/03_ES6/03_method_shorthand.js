@@ -22,3 +22,11 @@ var dog2 = {
 dog2.eat('고구마');
 
 // 함수를 객체로 선언
+
+let dog3 = {
+    name : "곰순이",
+    eat(food){
+        console.log(`${this.name}(은)는 ${food}를 맛있게 먹어요`);
+    }
+}
+dog3.eat('멸치');
